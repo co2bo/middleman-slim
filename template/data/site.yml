@@ -1,0 +1,28 @@
+lg: 'de_DE'
+url: 'https://co2bo.github.io'
+name: 'co2bo.github.io - A Middleman Test App'
+title: 'co2bo.github.io - A Middleman Test App'
+author: 'https://github.com/co2bo'
+keywords: Middleman,Bourbon,Bitters,Neat,Material-Design-Lite,Sass,Haml,Coffee-Script
+description: Lorem ipsum dolor sit amet, consectetuer adipiscing elit aenean commodo ligula eget dolor cum sociis natoque penatibus et magnis dis partur.
+##
+# @imades
+iconpath: './assets/images/favicons'
+logo_image_name: 'opengraph.svg'
+og_image_path: 'http://cdn.co2bo.de/images/opengraph.svg'
+logo_image_path: 'http://cdn.co2bo.de/images/opengraph.svg'
+##
+# @twitter
+twitter_site: 'https://twitter.com/co2bo'
+twitter_handle: '@co2bo'
+twitter_summery: 'summary_large_image'
+##
+# @Facebook
+og_type: 'website'
+og_author: 'https://www.facebook.com/xxxxxx'
+og_publisher: 'https://www.facebook.com/xxxxxx'
+og_image_path: 'http://cdn.co2bo.de/images/opengraph.svg'
+##
+# Google+
+g_plus: 'https://plus.google.com/xxxxxxxx'
+page_verify: 'LKIp8JxbK2hb2tw_eI97mr5afi7WDbjvOp-eV7z7In4'

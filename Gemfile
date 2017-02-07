@@ -1,7 +1,6 @@
 source "https://rubygems.org"
 
-gem 'middleman', '>= 4.0.0'
-gem 'cucumber', '>= 2.1'
-gem 'aruba', '>= 0.9'
-# see https://github.com/middleman/middleman/commit/ce5807353988b90702504b5ee4952e216de50bc3
-gem 'listen', '~> 3.0.0'
+gem 'middleman', gist: 'git@github.com:middleman/middleman.git',    branch: 'master'
+gem 'cucumber',  gist: 'git@github.com:cucumber/cucumber-ruby.git', branch: 'master'
+gem 'aruba',     gist: 'git@github.com:cucumber/aruba.git',         branch: 'master'
+gem 'listen',    gist: 'git@github.com:guard/listen.git',           branch: 'master'

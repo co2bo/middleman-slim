@@ -16,4 +16,4 @@ module Middleman
       directory 'template', '.', exclude_pattern: /\.DS_Store$/
     end
   end
-end
+end 

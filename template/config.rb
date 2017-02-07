@@ -1,3 +1,4 @@
+require 'font-awesome-sass'
 require 'uglifier'
 require 'sassc'
 #«------------------------------------------

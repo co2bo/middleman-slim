@@ -1,1 +1,56 @@
-#
+doctype 5
+html itemscope='' itemtype='http://schema.org/WebPage' lang=page_lg
+  head
+    meta charset='UTF-8'
+    meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible'
+    meta name='description' content=meta_description
+    meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1'
+    /Pagetitle
+    title= full_title(current_page.data.title)
+    link rel='canonical' href=meta_url
+    meta name='keywords' content=meta_keywords
+    meta name='google-site-verification' content=page_verify
+    /Android:chrome
+    meta name='application-name' content= meta_name
+    meta name='mobile-web-app-capable' content='yes'
+    /Safari:iOS
+    meta name='apple-mobile-web-app-capable' content='yes'
+    meta name='apple-mobile-web-app-title' content=meta_name
+    meta name='apple-mobile-web-app-status-bar-style' content='silver'
+    /Google:meta
+    meta itemprop='name' content=meta_title
+    meta itemprop='image' content=meta_image
+    meta itemprop='description' content=meta_description
+    /twitter:meta
+    meta name='twitter:card' content=meta_twitter_card_type
+    meta name='twitter:site' content=twitter_handle
+    meta name='twitter:creator' content=twitter_handle
+    meta name='twitter:image:src' content=meta_image
+    meta name='twitter:description' content=meta_description
+    /Facebook:meta
+    meta property='og:type' content=og_type
+    meta property='og:title' content=meta_title
+    meta property='og:image' content=meta_image
+    meta property='og:site_name' content=meta_name
+    meta property='og:url' content=meta_current_url
+    meta property='og:description' content=meta_description
+    /Favicons
+    = favicon_tag 'favicons/favicon.ico', type: 'image/x-icon'
+    = favicon_tag 'favicons/apple-touch-icon.png', rel: 'apple-touch-icon', type: 'image/png'
+    /Assets
+    = stylesheet_link_tag :application, media: 'all'
+    = yield_content :head
+
+  body class=page_classes
+    = component :body_top
+    main role='main'
+      = component :header
+      = component 'hero' if current_page.data.page_id == 'hero'
+      = component :breadcrumbs
+      .page-content#page-content
+        = yield
+      = component :footer
+    /! jQuery
+    = javascript_include_tag :vendor
+    = javascript_include_tag :application
+    = component :body_bottom

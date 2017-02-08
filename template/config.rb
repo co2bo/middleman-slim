@@ -1,47 +1,46 @@
 require 'font-awesome-sass'
 require 'uglifier'
 require 'sassc'
-#«------------------------------------------
-#  Layout-specific Configuration
-#«------------------------------------------
+#------------------------------------------------
+# Layout-specific Configuration
+#------------------------------------------------
 
-#» i18n
+##
+# i18n
 activate :i18n, mount_at_root: :de
-
-#» Relative URLs
-config[:relative_links] = true
-
-#» Default Layout
-config[:layout] = 'application/application'
-
-#» With no Layout
+##
+# Default Layout
+config[:layout] = :application
+##
+# With no Layout
 page '/*.xml',    layout: false
 page '/*.json',   layout: false
 page '/*.txt',    layout: false
 page '/404.html', layout: false
+##
+# Sass
+config[:sass] = { debug_info: false, sourcemap: :inline, line_comments: false, style: :compressed }
 
-#«------------------------------------------
-#  Sprockets-specific Configuration
-#«------------------------------------------
+#------------------------------------------------
+# Sprockets-specific Configuration
+#------------------------------------------------
 
-#» Sprockets
+##
+# Sprockets
 activate :sprockets do |c|
   c.expose_middleman_helpers = true
 end
-
-#» Rails-Assets
+##
+# Rails-Assets
 if defined? RailsAssets
   RailsAssets.load_paths.each do |path|
     sprockets.append_path path
   end
 end
 
-# Sass
-config[:sass] = { debug_info: false, sourcemap: :inline, line_comments: false, style: :compressed }
-
-#«------------------------------------------
+#------------------------------------------------
 #  Helpers
-#«------------------------------------------
+#------------------------------------------------
 
 helpers do
   # If you need helpers for use in this file, then you
@@ -49,32 +48,42 @@ helpers do
   # in `helpers/custom_helpers.rb`.
 end
 
-#«------------------------------------------
+#------------------------------------------------
 #  Development-specific Configuration
 #«------------------------------------------
 
 configure :development do
-  #» Host
+  ##
+  # Host
   config[:host] = "http://localhost:5777"
-  #» Relative Links
+  ##
+  # Relative URLs
   config[:relative_links] = true
-  #» Asset Pipeline Sets
+  ##
+  # Slim
+  ::Slim::Engine.set_options pretty: true
+  ##
+  # Asset Pipeline Sets
   confi[:css_dir]    = 'assets/stylesheets'
-  confi[:js_dir]     = 'assets/javascripts'
-  confi[:images_dir] = 'assets/images'
+
   confi[:fonts_dir]  = 'assets/fonts-folder'
-  #» Image Helper
+  confi[:images_dir] = 'assets/images'
+  ##
+  # Image Helper
   activate :automatic_image_sizes
-  #» Pretty URLs
+  ##
+  # Pretty URLs
   activate :directory_indexes
   page '/404.html', directory_index: false
-  #» Autoprefixer
+  ##
+  # Autoprefixer
   activate :autoprefixer do |config|
     config.browsers = ['last 2 versions', '> 10%']
     config.cascade  = false
     config.inline   = true
   end
-  #» Livereload
+  ##
+  # Livereload
   activate :livereload do |reload|
     reload.no_swf = true
   end
@@ -85,26 +94,26 @@ end
 #«------------------------------------------
 
 configure :production do
-  #» Asset Pipeline Sets
+  ## Asset Pipeline Sets
   confi[:css_dir]    = 'assets/stylesheets'
   confi[:js_dir]     = 'assets/javascripts'
   confi[:images_dir] = 'assets/images'
   confi[:fonts_dir]  = 'assets/fonts-folder'
-  #» Image Helperv
+  ## Image Helperv
   activate :automatic_image_sizes
-  #» Pretty URLs
+  ## Pretty URLs
   activate :directory_indexes
   page '/404.html', directory_index: false
-  #» Autoprefixer
+  ## Autoprefixer
   activate :autoprefixer do |config|
     config.browsers = ['last 2 versions', '> 10%']
     config.cascade  = false
     config.inline   = true
   end
-  #» BuildCleaner
+  ## BuildCleaner
   require_relative './lib/build_cleaner'
   activate :build_cleaner
-  #» FixPermissions
+  ## FixPermissions
   require_relative './lib/fix_permissions'
 end
 
@@ -113,17 +122,17 @@ end
 #«------------------------------------------
 
 configure :build do
-  #» Host
+  ## Host
   config[:host] = "https://co2bo.github.io"
-  #» Asset_Hash
+  ## Asset_Hash
   activate :asset_hash
-  #» Minify CSS on Build
+  ## Minify CSS on Build
   activate :minify_css, inline: true
-  #» Minify HTML on Build
+  ## Minify HTML on Build
   activate :minify_html
-  #» Minify Javascript on Build
+  ## Minify Javascript on Build
   activate :minify_javascript, inline: true
-  #» Relative Urls
+  ## Relative Urls
   activate :relative_assets
   config[:relative_links] = true
 end

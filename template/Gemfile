@@ -1,35 +1,36 @@
 source 'https://rubygems.org'
 ruby '2.3.1'
-
-## Windows Support
+#
+# Windows Support
+#----------------------------------------------------
 gem 'wdm' if Gem.win_platform?
-
-## Slim
+#
+# Slim
+#----------------------------------------------------
 gem 'slim', '>= 3.0'
-
-## Middleman Core
+#
+# Middleman Gems
+#----------------------------------------------------
 gem 'middleman-sprockets',    '~> 4'
 gem 'middleman-compass',      '~> 4'
 gem 'middleman',              '~> 4'
-
-## Middleman Gems
 gem 'middleman-autoprefixer', git: 'git@github.com:middleman/middleman-autoprefixer'
 gem 'middleman-livereload',   git: 'git@github.com:middleman/middleman-livereload'
 gem 'middleman-minify-html',  git: 'git@github.com:middleman/middleman-minify-html'
-gem 'middleman-deploy',       git: 'git@github.com:middleman-contrib/middleman-deploy.git'
-
-## Asset Pipeline Gems
-gem 'jquery-middleman',  '~> 3.1.2'
-gem 'font-awesome-sass', '~> 4.5.0'
-
-## Templating Engines
+gem 'middleman-deploy',       git: 'git@github.com:middleman-contrib/middleman-deploy'
+#
+# Templating Engines
+#----------------------------------------------------
 gem 'coffee-script', '~> 2.4.1'
+gem 'kramdown',      '~>1.13.2'
 gem 'builder',       '~> 3.2.3'
 gem 'sassc',         '~>1.11.2'
-gem 'rake'
-
-## Rails-Asset
+#
+# Rails-Assets-Pipeline-Gems
+#----------------------------------------------------
 source 'https://rails-assets.org' do
-  gem 'rails-assets-normalize-scss',    '3.0.3'
-  gem 'rails-assets-sass-mediaqueries', '1.6.1'
+  gem 'rails-assets-jquery'
+  gem 'rails-assets-normalize.scss'
+  gem 'rails-assets-sass-mediaqueries'
+  gem 'rails-assets-font-awesome-sass'
 end
